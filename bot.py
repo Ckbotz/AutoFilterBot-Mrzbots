@@ -1,5 +1,6 @@
 import logging
 import logging.config
+import asyncio
 
 # Get logging configurations
 logging.config.fileConfig('logging.conf')
@@ -104,5 +105,12 @@ class Bot(Client):
 
 
 
-app = Bot()
 app.run()
+app = Bot()
+
+async def main():
+    await app.start()
+    await asyncio.Event().wait()  # Keeps the bot running
+
+if __name__ == "__main__":
+    asyncio.run(main())
