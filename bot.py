@@ -105,7 +105,6 @@ class Bot(Client):
 
 
 
-app.run()
 app = Bot()
 
 async def main():
